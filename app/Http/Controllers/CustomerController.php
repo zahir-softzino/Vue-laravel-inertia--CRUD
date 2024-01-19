@@ -13,19 +13,21 @@ class CustomerController extends Controller
     }
 
     public function store (Request $request){
-        // $validated= $request->validate([
-        //     'name'  => 'required',
-        //     'email' => 'required|email|unique:customers',
-        //     'phone' => 'required|max:14|min:10',
+        $validated= $request->validate([
+            'name'  => 'required',
+            'email' => 'required|email|unique:customers',
+            'phone' => 'required|max:14|min:10',
 
-        // ]);
+        ]);
 
-        // Customer::create($validated);
-        $customer = new Customer;
-        $customer->name  = $request->name;
-        $customer->email = $request->email;
-        $customer->phone = $request->phone;
-        $customer->save();
+        Customer::create($validated);
+
+
+        // $customer = new Customer;
+        // $customer->name  = $request->name;
+        // $customer->email = $request->email;
+        // $customer->phone = $request->phone;
+        // $customer->save();
 
 
         return Redirect::route('customers.index');
