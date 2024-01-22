@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Http\Models\Customer;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
+    public function index(){
+        return inertia::render('create');
+    }
+
     public function create(){
         return inertia::render('create');
     }
