@@ -1,9 +1,17 @@
 <script setup>
-    defineProps({customers: Object})
+    defineProps({customers: Object});
+
+    import {router} from '@inertiajs/vue3';
+
+    function distroy(id){
+        router.delete('/customers/'+id);
+
+
+    }
 </script>
 
 <template>
-    <div class="card col-10 offset-3">
+    <div class="card col-10">
         <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
@@ -19,8 +27,9 @@
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.phone }}</td>
                     <td style="white-space: nowrap;">
+                        <button class="btn btn-info">View</button>
                         <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" @click.privent = "distroy(customer.id)">Delete</button>
                     </td>
                 </tr>
                 

@@ -41,4 +41,19 @@ class CustomerController extends Controller
 
         return Redirect::route('customers.index');
     }
+
+    public function edit(){
+
+    }
+
+    public function update(){
+        
+    }
+
+    public function distroy(Customer $customer){
+         
+        $customer->delete();
+        return redirect::route('customers.index');
+    }
+
 }
