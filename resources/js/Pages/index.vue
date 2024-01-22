@@ -3,10 +3,13 @@
 
     import {router} from '@inertiajs/vue3';
 
+    function edit(id){
+        // alert (id);customers/{id}/edit
+        router.get('/customers/'+id+'/edit');
+    }
+
     function distroy(id){
-        router.delete('/customers/'+id);
-
-
+        router.delete('/customers/'+id); 
     }
 </script>
 
@@ -28,7 +31,7 @@
                     <td>{{ customer.phone }}</td>
                     <td style="white-space: nowrap;">
                         <button class="btn btn-info">View</button>
-                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-primary" @click.prevent = "edit(customer.id)">Edit</button>
                         <button class="btn btn-danger" @click.privent = "distroy(customer.id)">Delete</button>
                     </td>
                 </tr>

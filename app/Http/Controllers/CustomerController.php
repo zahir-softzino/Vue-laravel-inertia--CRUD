@@ -42,12 +42,25 @@ class CustomerController extends Controller
         return Redirect::route('customers.index');
     }
 
-    public function edit(){
+    public function edit(Customer $customer){
+        return Inertia::render('edit', [
+            'customer' => $customer
+        ]);
+        // return $customer;
 
     }
 
-    public function update(){
-        
+    public function update(Request $request, Customer $customer){
+        $validated= $request->validate([
+            'name'  => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|max:14|min:10',
+
+        ]);
+        $customer ->update($validated);
+
+        return Redirect::route('customers.index');
+
     }
 
     public function distroy(Customer $customer){
