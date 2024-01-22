@@ -19,7 +19,7 @@ function submit(){
 </script>
 
 <template>
-    <div class="card col-6 ofset-3">
+    <div class="card col-6 d-flex justify-content-center">
         <div class="card-header">
             Create Form
         </div>
