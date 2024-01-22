@@ -11,7 +11,10 @@ use App\Models\Customer;
 class CustomerController extends Controller
 {
     public function index(){
-        return inertia::render('create');
+        // return Customer::all();
+        return inertia::render('index',[
+            'customers' => Customer::all()
+        ]);
     }
 
     public function create(){
